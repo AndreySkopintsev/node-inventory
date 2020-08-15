@@ -1,0 +1,24 @@
+extends layout
+
+block content
+
+    h1= title
+        form(method='POST' action='')
+            div.form
+                label(for='name') #[strong Item's name:]
+                input#name(type='text',placeholder='Please enter the name of the item', name='name')
+                label(for='category') #[strong Category:]
+                select#category(type='select' placeholder='Select category' name='category')
+                    for category in categories
+                        option(
+                            name='category'
+                            id=category._id
+                            value=category._id
+                        ) #{category.name}
+                label(for='description') #[strong Description:]
+                textarea#description(name='description' rows='7' cols='40')
+                label(for='price') #[strong Price:]
+                input#price(type='text' placeholder='Please enter the price of the item' name='price')
+                label(for='stock') #[strong Stock:]
+                input#stock(type='text' placeholder='Please enter the number of items in stock' name='stock')
+            button(type='submit') Submit
