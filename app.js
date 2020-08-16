@@ -1,12 +1,13 @@
 var createError = require('http-errors');
 var express = require('express');
+require('dotenv').config()
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 let mongoose = require('mongoose');
 let catalog = require('./routes/catalog')
 
-let mongoDB = 'mongodb+srv://librarian123:librarian123.@my-database-vydwb.mongodb.net/inventory_db?retryWrites=true&w=majority'
+let mongoDB = process.env.mongoUrl
 
 mongoose.connect(mongoDB,{useNewUrlParser:true,useUnifiedTopology:true});
 let db = mongoose.connection;
